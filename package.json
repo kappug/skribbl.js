@@ -1,0 +1,44 @@
+{
+  "name": "skribbl.js",
+  "version": "0.1.1",
+  "description": "A fully typed library for interacting with Skribbl.io games.",
+  "main": "dist/index.js",
+  "types": "./dist",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier --config .prettierrc '{src,examples}/**/*.ts' --write",
+    "build:clean": "rm -rf dist",
+    "build": "npm run build:clean && tsc",
+    "example:echo": "tsx ./examples/echo.ts",
+    "example:draw": "tsx ./examples/draw.ts",
+    "example:scrape": "tsx ./examples/scrape.ts",
+    "example:echoDrawing": "tsx ./examples/echoDrawing.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kappug/skribbl.js.git"
+  },
+  "keywords": [
+    "skribbl",
+    "skribbl.io"
+  ],
+  "author": "kappug",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kappug/skribbl.js/issues"
+  },
+  "homepage": "https://github.com/kappug/skribbl.js#readme",
+  "devDependencies": {
+    "@sindresorhus/tsconfig": "^5.0.0",
+    "@types/node": "^20.11.5",
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "socket.io-client": "^4.7.4"
+  }
+}

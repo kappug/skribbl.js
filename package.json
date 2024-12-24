@@ -1,6 +1,6 @@
 {
   "name": "skribbl.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A fully typed library for interacting with Skribbl.io games.",
   "main": "dist/index.js",
   "types": "./dist",

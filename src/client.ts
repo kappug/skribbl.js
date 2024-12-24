@@ -1,6 +1,5 @@
 import { EventEmitter } from "events";
 import { APIAvatar } from "./api";
-import axios, { AxiosInstance } from "axios";
 import { Room, RoomOptions } from "./room";
 import { Language, toLanguageId } from "./language";
 
@@ -9,18 +8,15 @@ interface ClientOptions {
   avatar: APIAvatar;
 }
 
+const BASE_URL = "https://skribbl.io/api";
+
 export class Client extends EventEmitter {
   options: ClientOptions;
-  private axios: AxiosInstance;
 
   constructor(options: ClientOptions) {
     super();
 
     this.options = options;
-    this.axios = axios.create({
-      baseURL: "https://skribbl.io:3000",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    });
   }
 
   /**
@@ -35,8 +31,15 @@ export class Client extends EventEmitter {
     if (language) params.append("lang", toLanguageId(language).toString());
     if (roomId) params.append("id", roomId);
 
-    const res = await this.axios.post<string>("/play", params);
-    return res.data;
+    const res = await fetch(BASE_URL + "/play", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: params,
+    });
+
+    return await res.text();
   }
 
   /**

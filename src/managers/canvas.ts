@@ -137,7 +137,7 @@ export class CanvasManager {
    * @param thickness The thickness of the polygon's border.
    * @param x The center X position.
    * @param y The center Y position.
-   * @param radius The radius of the circle.
+   * @param radius The radius of the polygon.
    * @param sides The number of sides to use when drawing the polygon.
    */
   drawPolygon(

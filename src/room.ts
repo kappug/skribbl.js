@@ -12,6 +12,7 @@ import {
   APIReportUser,
   APIStartGame,
   APIUpdateSettings,
+  APIVote,
   APIVotekickUser,
   EmitEvents,
   ListenEvents,
@@ -133,6 +134,14 @@ export class Room extends EventEmitter {
    */
   muteUser(userId: number) {
     this.emitData<APIMuteUser>(7, userId);
+  }
+
+  /**
+   * Votes on (likes or dislikes) the current drawing.
+   * @param vote The vote, `true` being a like, and `false` being a dislike.
+   */
+  vote(vote: boolean) {
+    this.emitData<APIVote>(8, Number(vote));
   }
 
   /**

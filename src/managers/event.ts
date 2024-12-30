@@ -59,7 +59,7 @@ export class EventManager {
         this.room.emit(
           "vote",
           this.room.users.get(data.data.id)!,
-          !data.data.vote,
+          !!data.data.vote,
         );
       else if (is<APIRoomInformation>(data, 10)) {
         this.room.users = new Map(
